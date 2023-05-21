@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <audio controls  id="audio">
+        <source src="./music/Humnava.mp3" type="">
+    </audio>
     <div class="container">
         <!-- section 1-->
         <div class="nav"> 
@@ -18,46 +21,51 @@
             </div>
             <!-- section 2-->
             <div class="thumnail">
-                <img src="image1.jpg" class="image1">
+                <img src="./image/image1.jpg" class="image1">
                 <p>Humnava</p>
                 <p class="singer">Singer: Mithoon, Papon</p>
             </div>
             <!-- section 3--> 
             <div class="love">
                 <div class="circle2">
-                    <i class="fa-solid fa-volume-high" ></i>
+                    <i class="fa-solid fa-volume-high" id="volume" ></i>
                 </div>
                 <!-- <div class="circle2">
                     <i class="fa-solid fa-volume-xmark"></i> </div>-->
-                <div class="circle2">
-                    <i class="fa-regular fa-heart"></i>
+                <div class="circle2" >
+                    <i class="fa-regular fa-heart"id="heart"></i>
                 </div>
-                <!--
-                    <div class= "circle2" <i class="fa-solid fa-heart"></i>
+                
+                    <!-- <div class= "circle2" ><i class="fa-solid fa-heart"></i>
                     </div> -->
-                <div class="circle2">
-                    <i class="fa-solid fa-infinity"></i>
+                <div class="circle2" id="infinity">
+                    <i class="fa-solid fa-infinity "></i>
                 </div>
             </div>
             <!--section 4-->
             <div class="range-div">
                 <input type="range" class="range">
             </div>
+            <div class="time">
+                <p>00.00</p>
+                <p>00.00</p>
+            </div>
             <!--section 5-->
             <div class="footer">
                 <div class="circle3">
-                    <i class="fa-solid fa-backward-step" id="icon"></i>
+                    <i class="fa-solid fa-backward-step icon" id="icon1"></i>
                 </div>
                 <div class="circle3">
-                    <i class="fa-solid fa-play" id="icon"></i>
+                    <i class="fa-solid fa-play icon" id="icon2"></i>
                 </div>
                 <!-- <div class="circle3">
-                     <i class="fa-solid fa-pause"></i> 
+                     <i class="fa-solid fa-pause icon" id="icon3"></i> 
                 </div> -->
                 <div class="circle3">
-                    <i class="fa-solid fa-forward-step" id="icon"></i>
+                    <i class="fa-solid fa-forward-step icon" id="icon4"></i>
                 </div>
             </div>
+            
     </div>
     <script src="main.js"></script>
 </body>
