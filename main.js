@@ -6,7 +6,17 @@ const mute = document.querySelector('#volume');
 const mute_btn = document.querySelector('#volume_btn');
 const heart_btn = document.querySelector('#heart_btn');
 const play_btn = document.querySelector('#play_btn');
-// console.log(audio);
+const nextBtn = document.querySelector('#nextBtn');
+const previousBtn = document.querySelector('#previousBtn');
+//Song Details Selection
+const songTitle = document.querySelector('#songTitle');
+const songThumbnail = document.querySelector('#songThumbnail');
+const singerName = document.querySelector('#singerName');
+const movieName = document.querySelector('#movieName');
+
+
+
+// console.dir(songThumbnail);
 // console.log(infinity);
 // console.log(heart);
 // console.dir(audio);
@@ -54,3 +64,25 @@ play_btn.addEventListener('click',()=>{
     play.classList.toggle('fa-pause');
 })
 
+function selectSong(index){
+    songThumbnail.src = songList[index].songImage;
+songTitle.textContent = songList[index].songName;
+movieName.textContent = songList[index].movieName;
+singerName.textContent = songList[index].singer;
+audio.src = songList[index].songLink;
+}
+let songNo = 0;
+selectSong(songNo);
+nextBtn.addEventListener('click',()=>{
+    if(songNo >= songList.length-1) return;
+    songNo += 1;
+    selectSong(songNo);
+    audio.play();
+    console.log(songNo);
+})
+previousBtn.addEventListener('click',()=>{
+    if(songNo < 0) return;
+    songNo -= 1;
+    selectSong(songNo);
+    audio.play();
+})

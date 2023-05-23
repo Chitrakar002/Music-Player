@@ -10,7 +10,7 @@
 </head>
 <body>
     <audio controls  id="audio">
-        <source src="./music/Humnava.mp3" type="">
+        <source src="" type="">
     </audio>
     <div class="container">
         <!-- section 1-->
@@ -21,25 +21,26 @@
             </div>
             <!-- section 2-->
             <div class="thumnail">
-                <img src="./image/image1.jpg" class="image1">
-                <p>Humnava</p>
-                <p class="singer">Singer: Mithoon, Papon</p>
+                <img src="" class="image1" id="songThumbnail">
+                <p id="songTitle"></p>
+                <p id="movieName"></p>
+                <p class="singer" id="singerName"></p>
             </div>
             <!-- section 3--> 
             <div class="love">
                 <div class="circle2" id="volume_btn">
-                    <i class="fa-solid fa-volume-high" id="volume"></i>
+                    <i class="fa-solid fa-volume-high sec3" id="volume"></i>
                 </div>
                 <!-- <div class="circle2">
-                    <i class="fa-solid fa-volume-xmark"></i> </div>-->
+                    <i class="fa-solid fa-volume-xmark sec3"></i> </div>-->
                 <div class="circle2" id="heart_btn">
-                    <i class="fa-regular fa-heart"id="heart"></i>
+                    <i class="fa-regular fa-heart sec3"id="heart"></i>
                 </div>
                 
-                    <!-- <div class= "circle2" ><i class="fa-solid fa-heart"></i>
+                    <!-- <div class= "circle2" ><i class="fa-solid fa-heart sec3"></i>
                     </div> -->
                 <div class="circle2" id="infinity">
-                    <i class="fa-solid fa-infinity "></i>
+                    <i class="fa-solid fa-infinity sec3"></i>
                 </div>
             </div>
             <!--section 4-->
@@ -52,7 +53,7 @@
             </div>
             <!--section 5-->
             <div class="footer">
-                <div class="circle3">
+                <div class="circle3" id="previousBtn">
                     <i class="fa-solid fa-backward-step icon" id="icon1"></i>
                 </div>
                 <div class="circle3" id="play_btn">
@@ -61,12 +62,13 @@
                 <!-- <div class="circle3">
                      <i class="fa-solid fa-pause icon" id="icon3"></i> 
                 </div> -->
-                <div class="circle3">
+                <div class="circle3" id="nextBtn">
                     <i class="fa-solid fa-forward-step icon" id="icon4"></i>
                 </div>
             </div>
             
     </div>
-    <script src="main.js"></script>
+    <script src="./songData.js"></script>
+    <script src="./main.js"></script>
 </body>
 </html>
