@@ -9,7 +9,7 @@ body{
 }
 .container{
     border-radius: 30px;
-    background-image: linear-gradient(rgb(245, 12, 50),rgb(250, 72, 102),rgb(252, 132, 152) );
+    background-image: linear-gradient(rgb(245, 12, 50),rgb(250, 78, 106),rgb(252, 132, 152) );
     width: 400px;
     height:600px;
     position: absolute;
@@ -103,7 +103,7 @@ body{
     box-shadow: 2px 2px 5px rgb(34, 19, 19);
     cursor: pointer;
     font-size: 13px;
-    font-weight: bold;
+    font-weight: bolder;
 }
 .loop{
     background-color: rgb(250, 23, 61);
@@ -120,10 +120,10 @@ body{
     width:100%;
     -webkit-appearance: none;
     height: 5px;
-    background: rgb(255, 167, 183);
+    background: rgb(255, 160, 177);
     outline: none;
     border-radius: 3px;
-    box-shadow: 1px 1px 6px rgb(160, 17, 136);
+    /* box-shadow: 1px 1px 6px rgb(160, 17, 136); */
 
     /* border: 1px solid black; */
     -webkit-transition: .2s;
@@ -183,6 +183,9 @@ body{
 
 .icon{
     font-size: 25px;
+    background-image:  linear-gradient(rgb(245, 12, 50),rgb(252, 132, 152),rgb(233, 33, 66) );
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
 }
 #audio{
     display: none;
