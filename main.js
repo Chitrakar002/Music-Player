@@ -5,6 +5,7 @@ const heart = document.querySelector('#heart');
 const mute = document.querySelector('#volume');
 const mute_btn = document.querySelector('#volume_btn');
 const heart_btn = document.querySelector('#heart_btn');
+const play_btn = document.querySelector('#play_btn');
 // console.log(audio);
 // console.log(infinity);
 // console.log(heart);
@@ -38,7 +39,7 @@ infinity.addEventListener('click',()=>{
     }
 })
 
-play.addEventListener('click',()=>{
+play_btn.addEventListener('click',()=>{
    
     if(play.classList.contains('fa-play'))
     {
