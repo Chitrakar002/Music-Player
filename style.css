@@ -134,7 +134,7 @@ body{
     appearance: none;
     width: 20px;
     height: 20px;
-    background-color: rgb(255, 15, 87);
+    background-image:  radial-gradient(rgb(245, 12, 50),rgb(250, 114, 136),rgb(173, 6, 34) );
     border-radius: 50%;
     cursor: pointer;
     border: 2px solid white;
@@ -183,7 +183,7 @@ body{
 
 .icon{
     font-size: 25px;
-    background-image:  linear-gradient(rgb(245, 12, 50),rgb(252, 132, 152),rgb(233, 33, 66) );
+    background-image:  linear-gradient(rgb(245, 12, 50),rgb(252, 132, 152),rgb(216, 17, 50) );
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
 }
