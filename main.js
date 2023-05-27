@@ -13,13 +13,12 @@ const songTitle = document.querySelector('#songTitle');
 const songThumbnail = document.querySelector('#songThumbnail');
 const singerName = document.querySelector('#singerName');
 const movieName = document.querySelector('#movieName');
-
-
+const menu = document.querySelector('#menu');
+const bar = document.querySelector('#bar');
 
 // console.dir(songThumbnail);
 // console.log(infinity);
 // console.log(heart);
-// console.dir(audio);
 mute_btn.addEventListener('click',()=>{
     mute.classList.toggle('fa-volume-high');
     mute.classList.toggle('fa-volume-xmark');
@@ -48,9 +47,8 @@ infinity.addEventListener('click',()=>{
         audio.loop = false;
     }
 })
-
 play_btn.addEventListener('click',()=>{
-   
+    // audio.autoplay = true; 
     if(play.classList.contains('fa-play'))
     {
         audio.play();
@@ -73,12 +71,52 @@ audio.src = songList[index].songLink;
 }
 let songNo = 0;
 selectSong(songNo);
+bar.value = audio.currentTime;
+setInterval(()=>{
+    
+    if(bar.value == 100){
+        // if(infinity.classList.contains('loop'))
+        if(audio.loop = true)
+        {
+            selectSong(songNo);
+            audio.play(); 
+            
+        }
+        else {
+            songNo += 1;
+            selectSong(songNo);
+            audio.play();
+        }
+
+    }
+    if(audio.paused == false){
+        // console.log("kuki");
+     play.classList.add('fa-pause');
+     play.classList.remove('fa-play');
+
+    }
+    else{
+        play.classList.add('fa-play');
+     play.classList.remove('fa-pause');
+    }
+    let a = audio.duration/100;
+    let barTime = audio.currentTime/a;
+    bar.value = barTime;
+
+    // console.log(a);
+},1000);
+bar.addEventListener('change',()=>{
+    audio.currentTime = bar.value * audio.duration/100;
+    audio.play();
+})
 nextBtn.addEventListener('click',()=>{
     if(songNo >= songList.length-1) return;
     songNo += 1;
     selectSong(songNo);
     audio.play();
-    console.log(songNo);
+console.dir(audio);
+
+    // console.log(songNo);
 })
 previousBtn.addEventListener('click',()=>{
     if(songNo < 0) return;
@@ -86,3 +124,13 @@ previousBtn.addEventListener('click',()=>{
     selectSong(songNo);
     audio.play();
 })
+menu.addEventListener('click',()=>{
+    menu.classList.toggle('fa-xmark');
+    menu.classList.toggle('playList');
+    
+})
+
+// console.log(e.value);
+// bar.addEventListener('change',()=>{
+//     audio.currentTime = bar.value*a;
+// })
