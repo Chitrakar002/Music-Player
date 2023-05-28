@@ -15,7 +15,8 @@ const singerName = document.querySelector('#singerName');
 const movieName = document.querySelector('#movieName');
 const menu = document.querySelector('#menu');
 const bar = document.querySelector('#bar');
-
+const initialTime = document.querySelector('#initialTime');
+const totalTime = document.querySelector('#totalTime');
 // console.dir(songThumbnail);
 // console.log(infinity);
 // console.log(heart);
@@ -72,15 +73,44 @@ audio.src = songList[index].songLink;
 let songNo = 0;
 selectSong(songNo);
 bar.value = audio.currentTime;
+function timeConvert(time){
+    let min  = Math.floor(time/60);
+    let sec = Math.floor(time%60);
+    let minString;
+    let secString;
+    if(min<10){
+         minString = `0${min}`;
+    }
+    else{
+         minString = `${min}`;
+
+    }
+    if(sec<10){
+        secString = `${sec}0`;
+   }
+   else{
+        secString = `${sec}`;
+
+   }
+    return `${minString}:${secString}`;
+}
 setInterval(()=>{
-    
-    if(bar.value == 100){
-        // if(infinity.classList.contains('loop'))
-        if(audio.loop = true)
+    totalTime.textContent=(timeConvert(audio.duration));
+    initialTime.textContent=(timeConvert(audio.currentTime));
+        if(bar.value == 100){
+        if(infinity.classList.contains('loop'))
+        // if(audio.loop = true)
         {
             selectSong(songNo);
             audio.play(); 
             
+        }
+        else if(songNo===songList.length-1){
+            play.classList.add('fa-play');
+            play.classList.remove('fa-pause');
+            songNo = 0;
+            selectSong(songNo);
+            // return;
         }
         else {
             songNo += 1;
