@@ -17,6 +17,8 @@ const menu = document.querySelector('#menu');
 const bar = document.querySelector('#bar');
 const initialTime = document.querySelector('#initialTime');
 const totalTime = document.querySelector('#totalTime');
+const songMenu = document.querySelector('#songList');
+const close = document.querySelector('#close');
 // console.dir(songThumbnail);
 // console.log(infinity);
 // console.log(heart);
@@ -155,9 +157,13 @@ previousBtn.addEventListener('click',()=>{
     audio.play();
 })
 menu.addEventListener('click',()=>{
-    // menu.classList.remove('menu');
-    menu.classList.toggle('playList');
+   
+    songMenu.classList.remove('hidden');
     
+})
+close.addEventListener('click',()=>{
+   
+    songMenu.classList.add('hidden');
     
 })
 
