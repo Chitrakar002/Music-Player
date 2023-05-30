@@ -86,7 +86,7 @@ function timeConvert(time){
 
     }
     if(sec<10){
-        secString = `${sec}0`;
+        secString = `0${sec}`;
    }
    else{
         secString = `${sec}`;

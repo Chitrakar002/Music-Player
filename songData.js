@@ -75,5 +75,47 @@ const songList = [
         songImage: './image/image11.jpg',
         singer: 'Singer: Sreeramchandra, Shilpa Rao',
         songLink: './music/Subhanallah.mp3'
+    },
+    {
+        songName: 'Bakhuda Tumhi Ho',
+        movieName: 'Kismat Konnection (2008)',
+        songImage: './image/image18.jpg',
+        singer: 'Singer: Atif Aslam, Alka Yagnik, Pritam',
+        songLink: './music/Bakhuda.mp3'
+    },
+    {
+        songName: 'Yeh Tune Kya Kiya',
+        movieName: 'Once Upon A Time In Mumbaai Dobaara!(2013)',
+        songImage: './image/image16.jpeg',
+        singer: 'Singer: Javed Basir',
+        songLink: './music/Ye_Tune_Kya_Kiya.mp3'
+    },
+    {
+        songName: 'Do Dil Mil Rahe Hain',
+        movieName: 'Pardes (1997)',
+        songImage: './image/image17.jpeg',
+        singer: 'Singer: Kumar Sanu',
+        songLink: './music/Do_Dil.mp3'
+    },
+    {
+        songName: 'Mera Bina Main',
+        movieName: 'Crook (2010)',
+        songImage: './image/image15.jpeg',
+        singer: 'Singer: Pritam Chakraborty',
+        songLink: './music/Mera_Bina.mp3'
+    },
+    {
+        songName: 'Main Agar Kahoon',
+        movieName: 'Om Shanti Om (2007)',
+        songImage: './image/image12.jpeg',
+        singer: 'Singer: Shreya Ghoshal, Sonun Nigam',
+        songLink: './music/Main_Agar_Kahoo.mp3'
+    },
+    {
+        songName: 'Ek Din Tere',
+        movieName: 'Naqaab (2007)',
+        songImage: './image/image14.jpeg',
+        singer: 'Singer: Javed Ali, Pritam Chakraborty',
+        songLink: './music/Ek_Din.mp3'
     }
 ]
