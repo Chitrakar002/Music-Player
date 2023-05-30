@@ -155,8 +155,9 @@ previousBtn.addEventListener('click',()=>{
     audio.play();
 })
 menu.addEventListener('click',()=>{
-    menu.classList.toggle('fa-xmark');
+    // menu.classList.remove('menu');
     menu.classList.toggle('playList');
+    
     
 })
 
