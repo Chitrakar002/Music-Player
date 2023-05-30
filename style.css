@@ -263,7 +263,7 @@ body{
     flex-direction: column;
     padding: 10px;
     /* line-height: 20px; */
-    gap: 2px;
+    gap: 5px;
 }
 .song{
     width: 100%;
