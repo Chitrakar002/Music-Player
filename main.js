@@ -167,7 +167,43 @@ close.addEventListener('click',()=>{
     
 })
 
-// console.log(e.value);
-// bar.addEventListener('change',()=>{
-//     audio.currentTime = bar.value*a;
-// })
+// /** how to create an element with the help of js and push it to html */
+// const div = document.createElement('div'); // use to create an element
+// div.classList.add('song'); //add a class name
+// // div.id = 'downDiv'; // add an id name
+// // console.log(div);
+// div.innerText = "all is normal";
+// // console.log(songHolder);
+// // songHolder.appendChild(div);
+// songHolder.prepend(div);
+
+/**
+ * 1. Append Child--> add element from the last
+ * 2. Prepend Child-->add element to first
+ */
+function songCreation(imgLink, titleName, movieName, singerName){
+const songHolder = document.getElementById('downdiv');
+const songDiv = document.createElement('div');
+songDiv.classList.add('song');
+const listImg = document.createElement('img');
+listImg.src = imgLink;
+listImg.classList.add('listImage');
+songDiv.append(listImg);
+const songDet = document.createElement('div');
+songDet.classList.add('songDetails');
+const titleEle = document.createElement('h3');
+titleEle.classList.add('title');
+titleEle.innerText= titleName;
+const songInfoEle = document.createElement('h3');
+songInfoEle.classList.add('songInfo');
+songInfoEle.innerText=movieName;
+const singerInfoEle = document.createElement('h3');
+singerInfoEle.classList.add('singerInfo');
+singerInfoEle.innerText= singerName;
+songDet.append(titleEle, songInfoEle, singerInfoEle);
+songDiv.append(songDet);
+songHolder.append(songDiv);
+}
+songList.forEach((ele)=>{
+    songCreation(ele.songImage, ele.songName, ele.movieName, ele.singer);  
+})

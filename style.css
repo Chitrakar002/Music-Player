@@ -264,6 +264,7 @@ body{
     padding: 10px;
     /* line-height: 20px; */
     gap: 5px;
+    overflow: scroll;
 }
 .song{
     width: 100%;
@@ -294,7 +295,7 @@ body{
     font-size: 20px;
 }
 .songInfo{
-    font-size: 12px;
+    font-size: 10px;
     font-family: Segoe Print;
 }
 .singerInfo{
@@ -302,6 +303,6 @@ body{
     font-size: 10px; 
 }
 /*  for control element to control js */
-/* .hidden{
+.hidden{
     display: none;
-} */
+}
