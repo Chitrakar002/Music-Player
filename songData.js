@@ -55,13 +55,13 @@ const songList = [
         singer: 'Singer: Mohammed Irfan',
         songLink: './music/Banjaara.mp3'
     },
-    {
-        songName: 'Kalank',
-        movieName: 'Kalank (2019)',
-        songImage: './image/image5.jpg',
-        singer: 'Singer: Arijit Singh',
-        songLink: './music/kalank.mp3'
-    },
+    // {
+    //     songName: 'Kalank',
+    //     movieName: 'Kalank (2019)',
+    //     songImage: './image/image5.jpg',
+    //     singer: 'Singer: Arijit Singh',
+    //     songLink: './music/kalank.mp3'
+    // },
     {
         songName: 'Apna Mujhe Tu Laga',
         movieName: '1920 : Evil Returns (2012)',

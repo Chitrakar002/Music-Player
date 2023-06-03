@@ -97,6 +97,7 @@ function timeConvert(time){
     return `${minString}:${secString}`;
 }
 setInterval(()=>{
+  
     totalTime.textContent=(timeConvert(audio.duration));
     initialTime.textContent=(timeConvert(audio.currentTime));
         if(bar.value == 100){
@@ -134,7 +135,10 @@ setInterval(()=>{
     let a = audio.duration/100;
     let barTime = audio.currentTime/a;
     bar.value = barTime;
-
+    if(!audio.duration)
+    {
+        totalTime.textContent = "00.00";
+    }
     // console.log(a);
 },1000);
 bar.addEventListener('change',()=>{
@@ -207,3 +211,4 @@ songHolder.append(songDiv);
 songList.forEach((ele)=>{
     songCreation(ele.songImage, ele.songName, ele.movieName, ele.singer);  
 })
+
