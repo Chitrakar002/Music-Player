@@ -339,3 +339,8 @@ body{
 .hidden{
     display: none;
 }
+.active{
+    box-shadow: 0 0 15px 2px #df77b3;
+    background-color: rgba(0, 0, 0, 0.418);
+    color: aliceblue;
+}
