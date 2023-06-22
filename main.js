@@ -107,7 +107,7 @@ function timeConvert(time){
    }
     return `${minString}:${secString}`;
 }
-
+previousNo = 0;
 setInterval(()=>{
       totalTime.textContent=(timeConvert(audio.duration));
     initialTime.textContent=(timeConvert(audio.currentTime));
@@ -130,6 +130,8 @@ setInterval(()=>{
             songNo += 1;
             selectSong(songNo);
             audio.play();
+            songStyleChange(songNo, previousNo);
+            previousNo = songNo;
         }
 
     }
