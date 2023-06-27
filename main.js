@@ -19,7 +19,36 @@ const initialTime = document.querySelector('#initialTime');
 const totalTime = document.querySelector('#totalTime');
 const songMenu = document.querySelector('#songList');
 const close = document.querySelector('#close');
+const favouriteSongs = document.querySelector('#favouriteList');
+const songHolder = document.getElementById('downdiv');
+const home = document.getElementById('home');
+home.addEventListener('click',()=>{
+    
+songListRander(songList);
 
+})
+
+// console.log(favouriteSongs);
+ 
+favouriteSongs.addEventListener('click',()=>{
+    // const favouriteList = songList.map((data)=>{
+    //     if(data.favourite)
+    //     {
+    //         return data;
+    //     }
+    // })
+    const favouriteList = [];
+    for(let i = 0; i< songList.length; i++){
+        if(songList[i].favourite)
+        {
+            favouriteList.push(songList[i])
+        }
+    }
+    // console.log(favouriteList);
+songListRander(favouriteList);
+
+
+})
 // console.dir(songThumbnail);
 // console.log(infinity);
 // console.log(heart);
@@ -36,9 +65,31 @@ mute_btn.addEventListener('click',()=>{
     }
    
 })
+function heartCheck(){
+    if(songList[songNo].favourite)
+    {
+        heart.classList.add('fa-solid');
+        heart.classList.remove('fa-regular');
+    }
+    else
+    {
+        heart.classList.remove('fa-solid');
+        heart.classList.add('fa-regular');
+    }
+}
 heart_btn.addEventListener('click',()=>{
     heart.classList.toggle('fa-regular');
     heart.classList.toggle('fa-solid');
+   
+    if(heart.classList.contains('fa-solid'))
+    {
+        songList[songNo].favourite = true;
+        // console.log(songList[songNo].favourite);
+    }
+    else{
+        songList[songNo].favourite = false;
+        // console.log(songList[songNo].favourite);
+    }
 
 })
 infinity.addEventListener('click',()=>{
@@ -131,6 +182,8 @@ setInterval(()=>{
             selectSong(songNo);
             audio.play();
             songStyleChange(songNo, previousNo);
+           heartCheck();
+
         }
 
     }
@@ -151,7 +204,7 @@ setInterval(()=>{
     {
         totalTime.textContent = "00.00";
     }
-    // console.log(a);
+        // console.log(a);
 },1000);
 bar.addEventListener('change',()=>{
     audio.currentTime = bar.value * audio.duration/100;
@@ -165,6 +218,8 @@ nextBtn.addEventListener('click',()=>{
     audio.play();
 console.dir(audio);
 songStyleChange(songNo,previousNo);
+heartCheck();
+
 
     // console.log(songNo);
 })
@@ -175,6 +230,8 @@ previousBtn.addEventListener('click',()=>{
     selectSong(songNo);
     audio.play();
     songStyleChange(songNo,previousNo);
+    heartCheck();
+
 })
 menu.addEventListener('click',()=>{
    
@@ -205,7 +262,6 @@ let n=0;
 
 
 function songCreation(imgLink, titleName, movieName, singerName){
-const songHolder = document.getElementById('downdiv');
 const songDiv = document.createElement('div');
 songDiv.classList.add('song');
 const listImg = document.createElement('img');
@@ -228,7 +284,9 @@ songDiv.append(songDet);
 songHolder.append(songDiv);
 return songDiv;
 }
-songList.forEach((ele)=>{
+function songListRander(list){
+    songHolder.innerHTML=" ";
+list.forEach((ele)=>{
     let element=songCreation(ele.songImage, ele.songName, ele.movieName, ele.singer);  
 element.dataset.idNo = n;
     element.addEventListener("click",(e)=>{
@@ -239,9 +297,14 @@ element.dataset.idNo = n;
         songs[previousNo].classList.remove('active');
         songStyleChange(songNo, previousNo);
         audio.play();
+        heartCheck();
         })
     n++;
 })
+}
+songListRander(songList);
 songStyleChange(songNo, null);
 // console.log(songs);
+
+
 
