@@ -1,3 +1,4 @@
+/****************** Html Elements *******************/
 const play = document.querySelector('#icon2');
 const audio = document.querySelector('#audio');
 const infinity = document.querySelector('#infinity');
@@ -8,7 +9,6 @@ const heart_btn = document.querySelector('#heart_btn');
 const play_btn = document.querySelector('#play_btn');
 const nextBtn = document.querySelector('#nextBtn');
 const previousBtn = document.querySelector('#previousBtn');
-//Song Details Selection
 const songTitle = document.querySelector('#songTitle');
 const songThumbnail = document.querySelector('#songThumbnail');
 const singerName = document.querySelector('#singerName');
@@ -21,229 +21,24 @@ const songMenu = document.querySelector('#songList');
 const close = document.querySelector('#close');
 const favouriteSongs = document.querySelector('#favouriteList');
 const songHolder = document.getElementById('downdiv');
+const songs = document.getElementsByClassName('song');
 const home = document.getElementById('home');
-home.addEventListener('click',()=>{
-    
+/********* Variables are given below ***************/
+/*-------------------------------------------------------- */
+let songNo = 0;
+let n=0;
+let previousNo = songNo;
+/*************** Begining Call *******************/
+//------------------------------------------
+selectSong(songNo);
 songListRander(songList);
+songStyleChange(songNo, null);
 
-})
-
-// console.log(favouriteSongs);
- 
-favouriteSongs.addEventListener('click',()=>{
-    // const favouriteList = songList.map((data)=>{
-    //     if(data.favourite)
-    //     {
-    //         return data;
-    //     }
-    // })
-    const favouriteList = [];
-    for(let i = 0; i< songList.length; i++){
-        if(songList[i].favourite)
-        {
-            favouriteList.push(songList[i])
-        }
-    }
-    // console.log(favouriteList);
-songListRander(favouriteList);
-
-
-})
+//------------------------------------------
+//--------------------------------------------
 // console.dir(songThumbnail);
 // console.log(infinity);
 // console.log(heart);
-mute_btn.addEventListener('click',()=>{
-    mute.classList.toggle('fa-volume-high');
-    mute.classList.toggle('fa-volume-xmark');
-    if(mute.classList.contains('fa-volume-high'))
-    {
-        audio.muted = false;
-    }
-    else if(mute.classList.contains('fa-volume-xmark'))
-    {
-        audio.muted = true;
-    }
-   
-})
-function heartCheck(){
-    if(songList[songNo].favourite)
-    {
-        heart.classList.add('fa-solid');
-        heart.classList.remove('fa-regular');
-    }
-    else
-    {
-        heart.classList.remove('fa-solid');
-        heart.classList.add('fa-regular');
-    }
-}
-heart_btn.addEventListener('click',()=>{
-    heart.classList.toggle('fa-regular');
-    heart.classList.toggle('fa-solid');
-   
-    if(heart.classList.contains('fa-solid'))
-    {
-        songList[songNo].favourite = true;
-        // console.log(songList[songNo].favourite);
-    }
-    else{
-        songList[songNo].favourite = false;
-        // console.log(songList[songNo].favourite);
-    }
-
-})
-infinity.addEventListener('click',()=>{
-    infinity.classList.toggle('loop');
-    if(infinity.classList.contains('loop'))
-    {
-        audio.loop = true;
-    }
-    else{
-        audio.loop = false;
-    }
-})
-play_btn.addEventListener('click',()=>{
-    // audio.autoplay = true; 
-    if(play.classList.contains('fa-play'))
-    {
-        audio.play();
-
-    }
-    else if(play.classList.contains('fa-pause')){
-        audio.pause();
-
-    }
-     play.classList.toggle('fa-play');
-    play.classList.toggle('fa-pause');
-})
-
-function selectSong(index){
-    songThumbnail.src = songList[index].songImage;
-songTitle.textContent = songList[index].songName;
-movieName.textContent = songList[index].movieName;
-singerName.textContent = songList[index].singer;
-audio.src = songList[index].songLink;
-}
-let songNo = 0;
-//------------------------------------------
-let previousNo = songNo;
-//------------------------------------------
-const songs = document.getElementsByClassName('song');
-function songStyleChange(currentNo, PrevNo){
-    songs[currentNo].classList.add('active');
-    
-        songs[PrevNo].classList.remove('active');
-}
-//--------------------------------------------
-selectSong(songNo);
-bar.value = audio.currentTime;
-function timeConvert(time){
-    let min  = Math.floor(time/60);
-    let sec = Math.floor(time%60);
-    let minString;
-    let secString;
-    if(min<10){
-         minString = `0${min}`;
-    }
-    else{
-         minString = `${min}`;
-
-    }
-    if(sec<10){
-        secString = `0${sec}`;
-   }
-   else{
-        secString = `${sec}`;
-
-   }
-    return `${minString}:${secString}`;
-}
-setInterval(()=>{
-      totalTime.textContent=(timeConvert(audio.duration));
-    initialTime.textContent=(timeConvert(audio.currentTime));
-        if(bar.value == 100){
-        if(infinity.classList.contains('loop'))
-        // if(audio.loop = true)
-        {
-            selectSong(songNo);
-            audio.play(); 
-            
-        }
-        else if(songNo===songList.length-1){
-            play.classList.add('fa-play');
-            play.classList.remove('fa-pause');
-            songNo = 0;
-            selectSong(songNo);
-            // return;
-        }
-        else {
-            previousNo = songNo;
-            songNo += 1;
-            selectSong(songNo);
-            audio.play();
-            songStyleChange(songNo, previousNo);
-           heartCheck();
-
-        }
-
-    }
-    if(audio.paused == false){
-        // console.log("kuki");
-     play.classList.add('fa-pause');
-     play.classList.remove('fa-play');
-
-    }
-    else{
-        play.classList.add('fa-play');
-     play.classList.remove('fa-pause');
-    }
-    let a = audio.duration/100;
-    let barTime = audio.currentTime/a;
-    bar.value = barTime;
-    if(!audio.duration)
-    {
-        totalTime.textContent = "00.00";
-    }
-        // console.log(a);
-},1000);
-bar.addEventListener('change',()=>{
-    audio.currentTime = bar.value * audio.duration/100;
-    audio.play();
-})
-nextBtn.addEventListener('click',()=>{
-    if(songNo >= songList.length-1) return;
-    previousNo=songNo;
-    songNo += 1;
-    selectSong(songNo);
-    audio.play();
-console.dir(audio);
-songStyleChange(songNo,previousNo);
-heartCheck();
-
-
-    // console.log(songNo);
-})
-previousBtn.addEventListener('click',()=>{
-    if(songNo < 0) return;
-    previousNo=songNo;
-    songNo -= 1;
-    selectSong(songNo);
-    audio.play();
-    songStyleChange(songNo,previousNo);
-    heartCheck();
-
-})
-menu.addEventListener('click',()=>{
-   
-    songMenu.classList.remove('hidden');
-    
-})
-close.addEventListener('click',()=>{
-   
-    songMenu.classList.add('hidden');
-    
-})
-
 // /** how to create an element with the help of js and push it to html */
 // const div = document.createElement('div'); // use to create an element
 // div.classList.add('song'); //add a class name
@@ -253,57 +48,10 @@ close.addEventListener('click',()=>{
 // // console.log(songHolder);
 // // songHolder.appendChild(div);
 // songHolder.prepend(div);
-
 /**
  * 1. Append Child--> add element from the last
  * 2. Prepend Child-->add element to first
- */
-let n=0;
-
-
-function songCreation(imgLink, titleName, movieName, singerName){
-const songDiv = document.createElement('div');
-songDiv.classList.add('song');
-const listImg = document.createElement('img');
-listImg.src = imgLink;
-listImg.classList.add('listImage');
-songDiv.append(listImg);
-const songDet = document.createElement('div');
-songDet.classList.add('songDetails');
-const titleEle = document.createElement('h3');
-titleEle.classList.add('title');
-titleEle.innerText= titleName;
-const songInfoEle = document.createElement('h3');
-songInfoEle.classList.add('songInfo');
-songInfoEle.innerText=movieName;
-const singerInfoEle = document.createElement('h3');
-singerInfoEle.classList.add('singerInfo');
-singerInfoEle.innerText= singerName;
-songDet.append(titleEle, songInfoEle, singerInfoEle);
-songDiv.append(songDet);
-songHolder.append(songDiv);
-return songDiv;
-}
-function songListRander(list){
-    songHolder.innerHTML=" ";
-list.forEach((ele)=>{
-    let element=songCreation(ele.songImage, ele.songName, ele.movieName, ele.singer);  
-element.dataset.idNo = n;
-    element.addEventListener("click",(e)=>{
-        previousNo = songNo;
-        songNo =(Number(e.currentTarget.dataset.idNo));
-        console.log(typeof(songNo));
-        selectSong(songNo);
-        songs[previousNo].classList.remove('active');
-        songStyleChange(songNo, previousNo);
-        audio.play();
-        heartCheck();
-        })
-    n++;
-})
-}
-songListRander(songList);
-songStyleChange(songNo, null);
+*/
 // console.log(songs);
 
 
