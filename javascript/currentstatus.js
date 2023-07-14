@@ -39,15 +39,20 @@ setInterval(()=>{
       play.classList.add('fa-play');
    play.classList.remove('fa-pause');
   }
+  //-------------------------------------------------
+////////*convert bar to 100.*----------------------////////
   let a = audio.duration/100;
   let barTime = audio.currentTime/a;
   bar.value = barTime;
+  /////*******************************************//////
+  //-----------------------------------------------------
   if(!audio.duration)
   {
       totalTime.textContent = "00.00";
   }
       // console.log(a);
 },1000);
+//*********** for change audio time as bar value **********//
 bar.value = audio.currentTime;
 bar.addEventListener('change',()=>{
     audio.currentTime = bar.value * audio.duration/100;

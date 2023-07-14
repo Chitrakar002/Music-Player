@@ -60,6 +60,22 @@ infinity.addEventListener('click',()=>{
         audio.loop = false;
     }
 })
+/****************** Mute Button (Sound Off) ******************/
+//-------------------------------------------------------------
+
+mute_btn.addEventListener('click',()=>{
+    mute.classList.toggle('fa-volume-high');
+    mute.classList.toggle('fa-volume-xmark');
+    if(mute.classList.contains('fa-volume-high'))
+    {
+        audio.muted = false;
+    }
+    else if(mute.classList.contains('fa-volume-xmark'))
+    {
+        audio.muted = true;
+    }
+   
+})
 
 /**************** Heart Button (Favourite List) ***************/
 //-------------------------------------------------------------
@@ -80,19 +96,3 @@ heart_btn.addEventListener('click',()=>{
 
 })
 
-/****************** Mute Button (Sound Off) ******************/
-//-------------------------------------------------------------
-
-mute_btn.addEventListener('click',()=>{
-    mute.classList.toggle('fa-volume-high');
-    mute.classList.toggle('fa-volume-xmark');
-    if(mute.classList.contains('fa-volume-high'))
-    {
-        audio.muted = false;
-    }
-    else if(mute.classList.contains('fa-volume-xmark'))
-    {
-        audio.muted = true;
-    }
-   
-})
